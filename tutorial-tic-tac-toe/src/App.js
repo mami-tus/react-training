@@ -9,12 +9,24 @@ function Square({ value, onSquareClick }) {
 }
 
 export default function Board() {
+  // プレーヤーの手番を管理するための state
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {
+    if (squares[i]) {
+      // すでに埋まっているマス目をクリックした場合は何もしない
+      return;
+    }
+    // イミュータビリティを保つために、squares 配列をコピーしてから変更を加える
     const nextSquares = squares.slice();
-    nextSquares[i] = 'X';
+    if (xIsNext) {
+      nextSquares[i] = 'X';
+    } else {
+      nextSquares[i] = 'O';
+    }
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
   return (
     <>
