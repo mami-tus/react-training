@@ -55,21 +55,19 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true); // 現在の手番を管理する state
   const [history, setHistory] = useState([Array(9).fill(null)]); // ゲームの履歴を管理する state
   const [currentMove, setCurrentMove] = useState(0); // 現在ユーザが見ているのが何番目の手かを管理する state
+  const xIsNext = currentMove % 2 === 0; // 次のプレイヤーが X かどうかを判定する
   const currentSquares = history[currentMove];
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
-    setXIsNext(!xIsNext);
   }
 
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
-    setXIsNext(nextMove % 2 === 0);
   }
 
   const moves = history.map((squares, move) => {
