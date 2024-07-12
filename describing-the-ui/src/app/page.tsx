@@ -12,6 +12,11 @@ const Home: React.FC = () => {
         <li>
           <a href='/writing-markup-with-jsx'>JSX でマークアップを記述する</a>
         </li>
+        <li>
+          <a href='/javascript-in-jsx-with-curly-braces'>
+            JSX に波括弧で JavaScript を含める
+          </a>
+        </li>
       </ul>
     </div>
   );

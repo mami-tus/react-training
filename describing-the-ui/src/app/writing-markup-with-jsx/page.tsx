@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from '../components/TodoList';
 
-const YourFirstComponent: React.FC = () => {
+const WritingMarkupWithJsx: React.FC = () => {
   return (
     <div>
       <TodoList />
@@ -9,4 +9,4 @@ const YourFirstComponent: React.FC = () => {
   );
 };
 
-export default YourFirstComponent;
+export default WritingMarkupWithJsx;
