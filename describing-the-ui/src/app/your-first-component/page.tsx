@@ -1,5 +1,4 @@
-import React from 'react';
-import Gallery from '../components/Gallery';
+import Gallery from './Gallery';
 
 const YourFirstComponent: React.FC = () => {
   return (

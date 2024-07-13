@@ -1,5 +1,4 @@
-import React from 'react';
-import Avatar from '../components/Avatar';
+import Avatar from './Avatar';
 
 const JavascriptInJsxWithCurlyBraces: React.FC = () => {
   return (
