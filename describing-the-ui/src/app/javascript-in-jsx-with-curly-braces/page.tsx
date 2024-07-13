@@ -1,9 +1,11 @@
 import Avatar from './Avatar';
+import TodoList from './TodoList';
 
 const JavascriptInJsxWithCurlyBraces: React.FC = () => {
   return (
     <div>
-      <Avatar />
+      {/* <Avatar /> */}
+      <TodoList />
     </div>
   );
 };
