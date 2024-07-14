@@ -1,0 +1,17 @@
+/**
+記事の Editor SDKを導入する で解決できた
+https://qiita.com/Enokisan/items/8007c6a943058bcf7073
+ワークスペースのバージョンを使用 が vscode のコマンドパレットで出てこなかったので
+GUIの設定 > ワークスペース > Typescript: Select TypeScript Version を検索
+TypeScript: Tsdk の パスに describing-the-ui/.yarn/sdks/typescript/lib を設定
+コマンドパレットでワークスペースのバージョンを使用が選択できるようになった
+**/
+{
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
