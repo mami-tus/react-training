@@ -45,3 +45,11 @@ code {
 ul {
   padding-inline-start: 20px;
 }
+
+body {
+  min-height: 120px;
+}
+.avatar {
+  margin: 10px;
+  border-radius: 50%;
+}

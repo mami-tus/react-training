@@ -17,6 +17,11 @@ const Home: React.FC = () => {
             JSX に波括弧で JavaScript を含める
           </a>
         </li>
+        <li>
+          <a href='/passing-props-to-a-component'>
+            コンポーネントに props を渡す
+          </a>
+        </li>
       </ul>
     </div>
   );
