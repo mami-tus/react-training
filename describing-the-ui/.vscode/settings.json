@@ -17,6 +17,6 @@ TypeScript: Tsdk の パスに describing-the-ui/.yarn/sdks/typescript/lib を�
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
     "source.fixAll.eslint": "explicit",
-    // "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit"
   },
 }
