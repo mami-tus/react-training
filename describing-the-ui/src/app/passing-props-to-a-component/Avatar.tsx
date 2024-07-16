@@ -3,7 +3,7 @@ import { getImageUrl } from './utils';
 
 export default function Avatar({
   person,
-  size,
+  size = 100,
 }: {
   person: { name: string; imageId: string };
   size: number;
