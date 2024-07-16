@@ -1,26 +1,16 @@
 import Avatar from './Avatar';
+import Card from './Card';
 
 export default function Profile() {
   return (
-    <div>
+    <Card>
       <Avatar
-        person={{ name: 'Katsuko Saruhashi', imageId: 'YfeOqp2' }}
         size={100}
-      />
-      <Avatar
-        size={80}
         person={{
-          name: 'Aklilu Lemma',
-          imageId: 'OKS67lh',
+          name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2',
         }}
       />
-      <Avatar
-        size={50}
-        person={{
-          name: 'Lin Lanying',
-          imageId: '1bX5QH6',
-        }}
-      />
-    </div>
+    </Card>
   );
 }

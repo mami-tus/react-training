@@ -1,4 +1,3 @@
-import './styles.css';
 import { getImageUrl } from './utils';
 
 export default function Avatar({
