@@ -5,10 +5,17 @@ export default function Profile() {
   return (
     <Card>
       <Avatar
-        size={100}
+        size={40}
         person={{
-          name: 'Katsuko Saruhashi',
-          imageId: 'YfeOqp2',
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
+        }}
+      />
+      <Avatar
+        size={120}
+        person={{
+          name: 'Gregorio Y. Zara',
+          imageId: '7vQD0fP',
         }}
       />
     </Card>
