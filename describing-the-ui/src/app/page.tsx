@@ -22,6 +22,9 @@ const Home: React.FC = () => {
             コンポーネントに props を渡す
           </a>
         </li>
+        <li>
+          <a href='/conditional-rendering'>条件付きレンダー</a>
+        </li>
       </ul>
     </div>
   );
