@@ -1,4 +1,4 @@
-import Profile from './Profile';
+import Profile from '@/app/passing-props-to-a-component/Profile';
 
 export default function PassingPropsToAComponent() {
   return (

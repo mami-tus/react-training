@@ -1,23 +1,25 @@
-import Avatar from './Avatar';
-import Card from './Card';
+import Card from '@/app/passing-props-to-a-component/Card';
 
 export default function Profile() {
   return (
-    <Card>
-      <Avatar
-        size={40}
-        person={{
-          name: 'Gregorio Y. Zara',
-          imageId: '7vQD0fP',
-        }}
-      />
-      <Avatar
-        size={120}
-        person={{
-          name: 'Gregorio Y. Zara',
-          imageId: '7vQD0fP',
-        }}
-      />
-    </Card>
+    <div>
+      <Card>
+        <h1>Photo</h1>
+        <img
+          className='avatar'
+          src='https://i.imgur.com/OKS67lhm.jpg'
+          alt='Aklilu Lemma'
+          width={70}
+          height={70}
+        />
+      </Card>
+      <Card>
+        <h1>About</h1>
+        <p>
+          Aklilu Lemma was a distinguished Ethiopian scientist who discovered a
+          natural treatment to schistosomiasis.
+        </p>
+      </Card>
+    </div>
   );
 }

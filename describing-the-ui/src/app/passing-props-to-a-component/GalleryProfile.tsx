@@ -1,15 +1,15 @@
 import { getImageUrl } from './utils';
 
 export default function GalleryProfile({
-  person: { name, imageId, profession, awards, discovery, imageSize = 70 },
+  person: { name, imageId, profession, awards, discovered, imageSize = 70 },
 }: {
   person: {
     name: string;
     imageId: string;
     profession: string;
     awards: string[];
-    discovery: string;
-    imageSize: number;
+    discovered: string;
+    imageSize?: number;
   };
 }) {
   return (
