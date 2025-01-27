@@ -5,6 +5,8 @@ type ItemProps = {
 
 export default function Item({ name, isPacked }: ItemProps) {
   return (
-    <li className='item '>{isPacked ? <del>{name + ' ✅'}</del> : name} </li>
+    <li className='item '>
+      {name} {isPacked && '✅'}
+    </li>
   );
 }
