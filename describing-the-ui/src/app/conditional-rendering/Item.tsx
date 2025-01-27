@@ -4,9 +4,9 @@ type ItemProps = {
 };
 
 export default function Item({ name, isPacked }: ItemProps) {
-  return (
-    <li className='item '>
-      {name} {isPacked && '✅'}
-    </li>
-  );
+  let itemContent: string | JSX.Element = name;
+  if (isPacked) {
+    itemContent = <del>{name + ' ✅'}</del>;
+  }
+  return <li className='item'>{itemContent}</li>;
 }
