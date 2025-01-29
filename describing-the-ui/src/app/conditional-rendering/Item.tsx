@@ -1,12 +1,12 @@
 type ItemProps = {
   name: string;
-  isPacked: boolean;
+  importance: number;
 };
 
-export default function Item({ name, isPacked }: ItemProps) {
+export default function Item({ name, importance }: ItemProps) {
   return (
     <li className='item'>
-      {name} {isPacked ? '✅' : '❌'}
+      {name} {importance !== 0 && <i>(Importance: {importance})</i>}
     </li>
   );
 }
