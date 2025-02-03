@@ -1,9 +1,10 @@
-import PackingList from '@/app/conditional-rendering/PackingList';
+import DrinkList from '@/app/conditional-rendering/DrinkList';
 
 const ConditionalRendering: React.FC = () => {
   return (
     <div>
-      <PackingList />
+      {/* <PackingList /> */}
+      <DrinkList />
     </div>
   );
 };
