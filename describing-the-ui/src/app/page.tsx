@@ -25,6 +25,9 @@ const Home: React.FC = () => {
         <li>
           <a href='/conditional-rendering'>条件付きレンダー</a>
         </li>
+        <li>
+          <a href='/rendering-lists'>リストのレンダー</a>
+        </li>
       </ul>
     </div>
   );
