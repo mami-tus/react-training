@@ -8,7 +8,3 @@ export const Route = createFileRoute("/quick-start")({
 		</div>
 	),
 });
-
-function RouteComponent() {
-	return <div>Hello "/quick-start"!</div>;
-}
