@@ -1,5 +1,6 @@
 import { CreatingAndNestingComponents } from "./components/CreatingAndNestingComponents";
 import { DisplayingData } from "./components/DisplayingData";
+import { RenderingLists } from "./components/RenderingLists";
 import { WritingMarkupWithJsx } from "./components/WritingMarkupWithJsx";
 
 export function QuickStartPage() {
@@ -17,6 +18,10 @@ export function QuickStartPage() {
 			<hr />
 			{/* データの表示 */}
 			<DisplayingData />
+
+			<hr />
+			{/* リストのレンダー */}
+			<RenderingLists />
 			{/* 他のセクションを追加していく */}
 		</div>
 	);
