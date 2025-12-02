@@ -10,6 +10,7 @@ function MyApp() {
 		</div>
 	);
 }
+
 export function CreatingAndNestingComponents() {
 	return (
 		<>
