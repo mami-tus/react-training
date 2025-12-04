@@ -46,6 +46,11 @@ ul {
   padding-inline-start: 20px;
 }
 
+button {
+  display: block;
+  margin-bottom: 5px;
+}
+
 .avatar {
   border-radius: 50%;
 }
