@@ -2,6 +2,7 @@ import { CreatingAndNestingComponents } from "./components/CreatingAndNestingCom
 import { DisplayingData } from "./components/DisplayingData";
 import { RenderingLists } from "./components/RenderingLists";
 import { RespondingToEvents } from "./components/RespondingToEvents";
+import { SharingDataBetweenComponents } from "./components/SharingDataBetweenComponents";
 import { UpdatingTheScreen } from "./components/UpdatingTheScreen";
 import { WritingMarkupWithJsx } from "./components/WritingMarkupWithJsx";
 
@@ -32,6 +33,10 @@ export function QuickStartPage() {
 			<hr />
 			{/* 画面の更新 */}
 			<UpdatingTheScreen />
+
+			<hr />
+			{/*  */}
+			<SharingDataBetweenComponents />
 			{/* 他のセクションを追加していく */}
 		</div>
 	);
