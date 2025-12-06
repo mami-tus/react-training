@@ -14,12 +14,21 @@ function MyButton() {
 	);
 }
 
-export function UpdatingTheScreen() {
+function MyApp() {
 	return (
 		<div>
 			<h1>Counters that update separately</h1>
 			<MyButton />
 			<MyButton />
+		</div>
+	);
+}
+
+export function UpdatingTheScreen() {
+	return (
+		<div>
+			<h1>画面の更新</h1>
+			<MyApp />
 		</div>
 	);
 }

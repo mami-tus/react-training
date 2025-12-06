@@ -8,7 +8,7 @@ function MyButton({ count, onClick }: { count: number; onClick: () => void }) {
 	);
 }
 
-export function SharingDataBetweenComponents() {
+function MyApp() {
 	const [count, setCount] = useState(0);
 
 	function handleClick() {
@@ -19,6 +19,15 @@ export function SharingDataBetweenComponents() {
 			<h1>Counters that update separately</h1>
 			<MyButton count={count} onClick={handleClick} />
 			<MyButton count={count} onClick={handleClick} />
+		</div>
+	);
+}
+
+export function SharingDataBetweenComponents() {
+	return (
+		<div>
+			<h1>コンポーネント間でデータを共有する</h1>
+			<MyApp />
 		</div>
 	);
 }
