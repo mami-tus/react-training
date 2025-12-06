@@ -9,7 +9,7 @@ import { WritingMarkupWithJsx } from "./components/WritingMarkupWithJsx";
 export function QuickStartPage() {
 	return (
 		<div>
-			<h1>Quick Start</h1>
+			<h1>クイックスタート</h1>
 			<br />
 			{/* コンポーネントの作成とネスト */}
 			<CreatingAndNestingComponents />

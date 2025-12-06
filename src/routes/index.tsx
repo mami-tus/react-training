@@ -3,8 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
 	component: () => (
 		<div>
-			<h2>Home</h2>
-			<p>React Learn のプレイグラウンド</p>
+			<h1>ホーム</h1>
+			<p>Reactを学ぶ</p>
 		</div>
 	),
 });

@@ -11,12 +11,13 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 export const Route = createRootRoute({
 	component: () => (
 		<div style={{ padding: 20 }}>
-			<h1>React Learn Playground</h1>
+			<h1>Learn React</h1>
 
 			{/* 共通ナビゲーション */}
 			<nav style={{ marginBottom: 16, display: "flex", gap: 8 }}>
-				<Link to="/">Home</Link>
-				<Link to="/quick-start">Quick Start</Link>
+				<Link to="/">ホーム</Link>
+				<Link to="/quick-start">クイックスタート</Link>
+				<Link to="/tutorial-tic-tac-toe">チュートリアル：三目並べ</Link>
 			</nav>
 
 			<hr />

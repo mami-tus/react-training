@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TutorialTicTacToeRouteImport } from './routes/tutorial-tic-tac-toe'
 import { Route as QuickStartRouteImport } from './routes/quick-start'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TutorialTicTacToeRoute = TutorialTicTacToeRouteImport.update({
+  id: '/tutorial-tic-tac-toe',
+  path: '/tutorial-tic-tac-toe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuickStartRoute = QuickStartRouteImport.update({
   id: '/quick-start',
   path: '/quick-start',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/quick-start': typeof QuickStartRoute
+  '/tutorial-tic-tac-toe': typeof TutorialTicTacToeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/quick-start': typeof QuickStartRoute
+  '/tutorial-tic-tac-toe': typeof TutorialTicTacToeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/quick-start': typeof QuickStartRoute
+  '/tutorial-tic-tac-toe': typeof TutorialTicTacToeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/quick-start'
+  fullPaths: '/' | '/quick-start' | '/tutorial-tic-tac-toe'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/quick-start'
-  id: '__root__' | '/' | '/quick-start'
+  to: '/' | '/quick-start' | '/tutorial-tic-tac-toe'
+  id: '__root__' | '/' | '/quick-start' | '/tutorial-tic-tac-toe'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   QuickStartRoute: typeof QuickStartRoute
+  TutorialTicTacToeRoute: typeof TutorialTicTacToeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tutorial-tic-tac-toe': {
+      id: '/tutorial-tic-tac-toe'
+      path: '/tutorial-tic-tac-toe'
+      fullPath: '/tutorial-tic-tac-toe'
+      preLoaderRoute: typeof TutorialTicTacToeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quick-start': {
       id: '/quick-start'
       path: '/quick-start'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   QuickStartRoute: QuickStartRoute,
+  TutorialTicTacToeRoute: TutorialTicTacToeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
