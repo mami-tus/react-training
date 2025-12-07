@@ -51,10 +51,60 @@ button {
   margin-bottom: 5px;
 }
 
+.nav {
+  padding: 0.5rem; /* p-2 */
+  display: flex; /* flex */
+  gap: 0.5rem; /* gap-2 */
+}
+
+/* リンク共通スタイル */
+.nav a {
+  text-decoration: none;
+  color: rebeccapurple;
+}
+
+/* active なリンクを太字に（Link が自動で .active を付けてくれる） */
+.nav a.active {
+  font-weight: 700; /* font-bold */
+}
+
 .avatar {
   border-radius: 50%;
 }
 
 .large {
   border: 4px solid gold;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
 }

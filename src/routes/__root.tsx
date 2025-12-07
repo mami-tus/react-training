@@ -8,25 +8,21 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-export const Route = createRootRoute({
-	component: () => (
-		<div style={{ padding: 20 }}>
-			<h1>Learn React</h1>
-
-			{/* 共通ナビゲーション */}
-			<nav style={{ marginBottom: 16, display: "flex", gap: 8 }}>
-				<Link to="/">ホーム</Link>
-				<Link to="/quick-start">クイックスタート</Link>
-				<Link to="/tutorial-tic-tac-toe">チュートリアル：三目並べ</Link>
-			</nav>
-
-			<hr />
-
-			{/* 子ルートがここに差し込まれる */}
-			<Outlet />
-
-			{/* ルートの状態確認ツール（開発時用） */}
-			<TanStackRouterDevtools />
+const RootLayout = () => (
+	<>
+		<div className="nav">
+			<Link to="/">ホーム</Link>
+			<Link to="/quick-start">クイックスタート</Link>
+			<Link to="/tutorial-tic-tac-toe">チュートリアル：三目並べ</Link>
 		</div>
-	),
+		<hr />
+		{/* 子ルートがここに差し込まれる */}
+		<Outlet />
+		{/* ルートの状態確認ツール（開発時用） */}
+		<TanStackRouterDevtools />
+	</>
+);
+
+export const Route = createRootRoute({
+	component: RootLayout,
 });
