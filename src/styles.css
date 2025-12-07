@@ -46,11 +46,6 @@ ul {
   padding-inline-start: 20px;
 }
 
-button {
-  display: block;
-  margin-bottom: 5px;
-}
-
 .nav {
   padding: 0.5rem; /* p-2 */
   display: flex; /* flex */
