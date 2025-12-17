@@ -1,4 +1,4 @@
-import { Board } from "./components/Board";
+import { Game } from "./components/Game";
 
 export function TutorialTicTacToePage() {
 	return (
@@ -6,7 +6,7 @@ export function TutorialTicTacToePage() {
 			<h1>チュートリアル：三目並べ</h1>
 			<br />
 
-			<Board />
+			<Game />
 		</div>
 	);
 }
