@@ -28,11 +28,7 @@ function Board({
 			return;
 		}
 		const nextSquares = squares.slice();
-		if (xIsNext) {
-			nextSquares[i] = "X";
-		} else {
-			nextSquares[i] = "O";
-		}
+		nextSquares[i] = xIsNext ? "X" : "O";
 		onPlay(nextSquares);
 	}
 
@@ -69,22 +65,32 @@ export function Game() {
 	const [history, setHistory] = useState<(string | null)[][]>([
 		Array(9).fill(null),
 	]);
-	const currentSquares = history[history.length - 1];
+	const [currentMove, setCurrentMove] = useState(0);
+	const currentSquares = history[currentMove];
 
 	function handlePlay(nextSquares: (string | null)[]) {
-		setHistory([...history, nextSquares]);
+		const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+		setHistory(nextHistory);
+		setCurrentMove(nextHistory.length - 1);
 		setXIsNext(!xIsNext);
 	}
 
-	function jumpTo(nextMove) {
-		// TODO
+	function jumpTo(nextMove: number) {
+		setCurrentMove(nextMove);
+		// currentMove を変更する数値が偶数の場合は、xIsNext を true
+		setXIsNext(nextMove % 2 === 0);
 	}
 
 	const moves = history.map((_, move) => {
 		const description = move > 0 ? `Go to move #${move}` : "Go to game start";
 		return (
-			<li>
-				<button onClick={() => jumpTo(move)}>{description}</button>
+			<li
+				// biome-ignore lint/suspicious/noArrayIndexKey: indexをkeyに使用しても問題ないため
+				key={move}
+			>
+				<button type="button" onClick={() => jumpTo(move)}>
+					{description}
+				</button>
 			</li>
 		);
 	});
