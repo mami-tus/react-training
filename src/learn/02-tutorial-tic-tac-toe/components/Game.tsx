@@ -80,15 +80,25 @@ export function Game() {
 	}
 
 	const moves = history.map((_, move) => {
-		const description = move > 0 ? `Go to move #${move}` : "Go to game start";
+		const isCurrent = move === currentMove;
+
+		const label = move === 0 ? "Go to game start" : `Go to move #${move}`;
+
+		const currentLabel =
+			move === 0 ? "You are at game start" : `You are at move #${move}`;
+
 		return (
 			<li
 				// biome-ignore lint/suspicious/noArrayIndexKey: indexをkeyに使用しても問題ないため
 				key={move}
 			>
-				<button type="button" onClick={() => jumpTo(move)}>
-					{description}
-				</button>
+				{isCurrent ? (
+					currentLabel
+				) : (
+					<button type="button" onClick={() => jumpTo(move)}>
+						{label}
+					</button>
+				)}
 			</li>
 		);
 	});
