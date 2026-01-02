@@ -103,3 +103,7 @@ ul {
 .game-info {
   margin-left: 20px;
 }
+
+.square--highlight {
+  background: yellow; /* 好きな色でOK */
+}

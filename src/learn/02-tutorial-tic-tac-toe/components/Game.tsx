@@ -1,14 +1,24 @@
 import { useState } from "react";
 
+type Player = "X" | "O";
+type SquareValue = Player | null;
+type WinnerInfo = { winner: Player; line: [number, number, number] } | null;
+
 function Square({
 	value,
 	onSquareClick,
+	isHighlight,
 }: {
-	value: string | null;
+	value: SquareValue;
 	onSquareClick: () => void;
+	isHighlight: boolean;
 }) {
 	return (
-		<button type="button" className="square" onClick={onSquareClick}>
+		<button
+			type="button"
+			className={`square${isHighlight ? " square--highlight" : ""}`}
+			onClick={onSquareClick}
+		>
 			{value}
 		</button>
 	);
@@ -20,9 +30,12 @@ function Board({
 	onPlay,
 }: {
 	xIsNext: boolean;
-	squares: (string | null)[];
-	onPlay: (nextSquares: (string | null)[]) => void;
+	squares: SquareValue[];
+	onPlay: (nextSquares: SquareValue[]) => void;
 }) {
+	const winnerInfo = calculateWinner(squares);
+	const draw = isDraw(squares, winnerInfo);
+
 	function handleClick(i: number) {
 		if (squares[i] || calculateWinner(squares)) {
 			return;
@@ -32,20 +45,23 @@ function Board({
 		onPlay(nextSquares);
 	}
 
-	const winner = calculateWinner(squares);
 	const status =
-		winner !== null
-			? `Winner: ${winner}`
-			: `Next player: ${xIsNext ? "X" : "O"}`;
+		winnerInfo !== null
+			? `Winner: ${winnerInfo.winner}`
+			: draw
+				? "Draw!"
+				: `Next player: ${xIsNext ? "X" : "O"}`;
+
+	const winningSet = new Set<number>(winnerInfo?.line ?? []);
 
 	return (
 		<>
 			<div className="status">{status}</div>
+
 			{/* 行をループ */}
 			{Array.from({ length: 3 }).map((_, row) => (
-				// biome-ignore lint/suspicious/noArrayIndexKey: indexをkeyに使用しても問題ないため
+				// biome-ignore lint/suspicious/noArrayIndexKey: tutorial用途で順序が変わらないため
 				<div key={row} className="board-row">
-					{/* 列をループ */}
 					{Array.from({ length: 3 }).map((_, col) => {
 						const index = row * 3 + col;
 						return (
@@ -53,6 +69,7 @@ function Board({
 								key={index}
 								value={squares[index]}
 								onSquareClick={() => handleClick(index)}
+								isHighlight={winningSet.has(index)}
 							/>
 						);
 					})}
@@ -63,7 +80,7 @@ function Board({
 }
 
 export function Game() {
-	const [history, setHistory] = useState<(string | null)[][]>([
+	const [history, setHistory] = useState<SquareValue[][]>([
 		Array(9).fill(null),
 	]);
 	const [currentMove, setCurrentMove] = useState(0);
@@ -72,7 +89,7 @@ export function Game() {
 
 	const [isAscending, setIsAscending] = useState(true);
 
-	function handlePlay(nextSquares: (string | null)[]) {
+	function handlePlay(nextSquares: SquareValue[]) {
 		const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
 		setHistory(nextHistory);
 		setCurrentMove(nextHistory.length - 1);
@@ -126,8 +143,8 @@ export function Game() {
 	);
 }
 
-function calculateWinner(squares: (string | null)[]) {
-	const lines = [
+function calculateWinner(squares: SquareValue[]): WinnerInfo {
+	const lines: [number, number, number][] = [
 		[0, 1, 2],
 		[3, 4, 5],
 		[6, 7, 8],
@@ -137,11 +154,16 @@ function calculateWinner(squares: (string | null)[]) {
 		[0, 4, 8],
 		[2, 4, 6],
 	];
-	for (let i = 0; i < lines.length; i++) {
-		const [a, b, c] = lines[i];
-		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-			return squares[a];
+
+	for (const [a, b, c] of lines) {
+		const v = squares[a];
+		if (v && v === squares[b] && v === squares[c]) {
+			return { winner: v, line: [a, b, c] };
 		}
 	}
 	return null;
+}
+
+function isDraw(squares: SquareValue[], winnerInfo: WinnerInfo) {
+	return winnerInfo === null && squares.every((v) => v !== null);
 }
