@@ -70,6 +70,8 @@ export function Game() {
 	const xIsNext = currentMove % 2 === 0;
 	const currentSquares = history[currentMove];
 
+	const [isAscending, setIsAscending] = useState(true);
+
 	function handlePlay(nextSquares: (string | null)[]) {
 		const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
 		setHistory(nextHistory);
@@ -81,7 +83,10 @@ export function Game() {
 		// currentMove を変更する数値が偶数の場合は、xIsNext を true
 	}
 
-	const moves = history.map((_, move) => {
+	const moveIndexes = Array.from({ length: history.length }, (_, i) => i);
+	if (!isAscending) moveIndexes.reverse();
+
+	const moves = moveIndexes.map((move) => {
 		const isCurrent = move === currentMove;
 
 		const label = move === 0 ? "Go to game start" : `Go to move #${move}`;
@@ -111,6 +116,10 @@ export function Game() {
 				<Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
 			</div>
 			<div className="game-info">
+				<button type="button" onClick={() => setIsAscending((prev) => !prev)}>
+					Sort: {isAscending ? "Ascending" : "Descending"}
+				</button>
+
 				<ol>{moves}</ol>
 			</div>
 		</div>
